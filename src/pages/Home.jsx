@@ -46,8 +46,8 @@ export default function Home() {
     const handleTimeUpdate = () => {
         if (videoRef.current) {
             // Original video is 10s. At 0.4x, it plays for 25s.
-            // Hiding during the last 2.5 seconds of playback means hiding for the last 1s of media time (time > 9.0).
-            if (videoRef.current.currentTime >= 9.0) {
+            // Hiding during the last 3 seconds of playback means hiding for the last 1.2s of media time (time > 8.8).
+            if (videoRef.current.currentTime >= 8.8) {
                 setShowHeroText(false);
             } else {
                 setShowHeroText(true);
