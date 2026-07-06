@@ -152,7 +152,7 @@ export default function Home() {
                             <div className="aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] overflow-hidden bg-surface-container">
                                 <div
                                     className="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-1000"
-                                    style={{ backgroundImage: "url('/images/v3/tamil_girl_1.png')" }}
+                                    style={{ backgroundImage: "url('/images/v3/tamil_girl_2.png')" }}
                                 ></div>
                             </div>
                         </div>
