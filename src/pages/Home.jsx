@@ -33,15 +33,10 @@ export default function Home() {
     const filters = ['All', 'Weddings', 'Portraits', 'Commercial', 'Events'];
     const filteredItems = activeFilter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === activeFilter);
 
+    // Re-init AOS after filter changes so new elements animate
     useEffect(() => {
-        const revealElements = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver(
-            (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('active'); }),
-            { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-        );
-        revealElements.forEach(el => observer.observe(el));
-        return () => observer.disconnect();
-    }, []);
+        if (window.AOS) window.AOS.refresh();
+    }, [activeFilter]);
 
     const scrollTo = (id) => {
         const el = document.getElementById(id);
@@ -54,31 +49,36 @@ export default function Home() {
             <Navbar />
 
             {/* ═══════════════════════════════════════════
-                HERO — Full-screen image with centered copy
+                HERO — Full-screen VIDEO with copy
             ═══════════════════════════════════════════ */}
             <section id="hero" className="relative w-full h-screen flex items-end justify-center overflow-hidden">
-                {/* Background image with Ken Burns */}
+                {/* Background video */}
                 <div className="absolute inset-0 z-0">
-                    <div
-                        className="absolute inset-0 w-full h-full bg-cover bg-center ken-burns"
-                        style={{ backgroundImage: "url('/images/v3/studio_hero.png')" }}
-                    ></div>
-                    {/* Dark overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1a0a05] via-[#1a0a05]/70 to-[#1a0a05]/30"></div>
+                    <video
+                        className="w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    >
+                        <source src="/images/hero.mp4" type="video/mp4" />
+                    </video>
+                    {/* Dark cinematic overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0503] via-[#0a0503]/60 to-[#0a0503]/20"></div>
                 </div>
 
-                {/* Hero content — pinned to bottom-left for editorial feel */}
+                {/* Hero content — editorial bottom-left */}
                 <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-20 md:pb-28">
-                    <div className="max-w-2xl reveal">
-                        <span className="font-label-caps text-label-caps text-[#D4AF37] tracking-[0.2em] mb-6 block">Wedding & Event Photography</span>
-                        <h1 className="font-display-lg text-[40px] md:text-[72px] leading-[1.05] tracking-[-0.03em] text-white mb-6">
+                    <div className="max-w-2xl">
+                        <span data-aos="fade-up" className="font-label-caps text-label-caps text-[#D4AF37] tracking-[0.2em] mb-6 block">Wedding & Event Photography</span>
+                        <h1 data-aos="fade-up" data-aos-delay="100" className="font-display-lg text-[36px] md:text-[72px] leading-[1.05] tracking-[-0.03em] text-white mb-6">
                             Capturing Jaffna's Moments,<br className="hidden md:block"/> Traditionally Timeless
                         </h1>
-                        <p className="font-body-lg text-[16px] md:text-body-lg text-white/70 max-w-lg mb-10 leading-relaxed">
+                        <p data-aos="fade-up" data-aos-delay="200" className="font-body-lg text-[16px] md:text-body-lg text-white/70 max-w-lg mb-10 leading-relaxed">
                             A sophisticated blend of ancient cultural motifs and contemporary minimalist luxury.
                         </p>
-                        <div className="flex flex-wrap gap-4 items-center">
-                            <button onClick={() => scrollTo('portfolio')} className="bg-white text-[#1a0a05] font-label-caps text-label-caps py-4 px-8 hover:bg-[#D4AF37] hover:text-[#1a0a05] transition-all duration-300 flex items-center gap-2 group">
+                        <div data-aos="fade-up" data-aos-delay="300" className="flex flex-wrap gap-4 items-center">
+                            <button onClick={() => scrollTo('portfolio')} className="bg-white text-[#0a0503] font-label-caps text-label-caps py-4 px-8 hover:bg-[#D4AF37] hover:text-[#0a0503] transition-all duration-300 flex items-center gap-2 group">
                                 View Portfolio
                                 <span className="group-hover:translate-x-1 transition-transform"><ArrowForwardIcon /></span>
                             </button>
@@ -100,20 +100,20 @@ export default function Home() {
             ═══════════════════════════════════════════ */}
             <section id="studio" className="py-24 md:py-32 px-margin-mobile md:px-margin-desktop">
                 <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-gutter items-center">
-                    {/* Image — left on desktop, stacks top on mobile */}
-                    <div className="md:col-span-6 reveal relative">
+                    {/* Image */}
+                    <div className="md:col-span-6" data-aos="fade-right">
                         <div className="relative">
                             <div className="absolute -top-4 -left-4 w-full h-full border border-[#D4AF37]/20 hidden md:block"></div>
                             <div className="aspect-[4/5] overflow-hidden bg-surface-container">
                                 <div
                                     className="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-1000"
-                                    style={{ backgroundImage: "url('/images/v3/portfolio_wedding.png')" }}
+                                    style={{ backgroundImage: "url('/images/v3/studio_hero.png')" }}
                                 ></div>
                             </div>
                         </div>
                     </div>
-                    {/* Copy — right */}
-                    <div className="md:col-span-5 md:col-start-8 reveal">
+                    {/* Copy */}
+                    <div className="md:col-span-5 md:col-start-8" data-aos="fade-left" data-aos-delay="150">
                         <span className="font-label-caps text-label-caps text-[#D4AF37] tracking-[0.15em] mb-5 block">The Studio</span>
                         <h2 className="font-display-sm text-[32px] md:text-display-sm text-primary leading-tight mb-6">The Soul of Jaffna Photography</h2>
                         <div className="w-12 h-[2px] bg-[#D4AF37]/50 mb-8"></div>
@@ -126,22 +126,17 @@ export default function Home() {
 
                         {/* Expertise pills */}
                         <div className="grid grid-cols-2 gap-4 mb-8">
-                            <div className="border border-outline-variant/30 p-4 hover:border-primary/50 transition-colors">
-                                <span className="font-label-caps text-[10px] text-[#D4AF37] tracking-[0.15em] block mb-1">01 / Rituals</span>
-                                <span className="font-title-md text-title-md text-on-surface">Weddings</span>
-                            </div>
-                            <div className="border border-outline-variant/30 p-4 hover:border-primary/50 transition-colors">
-                                <span className="font-label-caps text-[10px] text-[#D4AF37] tracking-[0.15em] block mb-1">02 / Faces</span>
-                                <span className="font-title-md text-title-md text-on-surface">Portraits</span>
-                            </div>
-                            <div className="border border-outline-variant/30 p-4 hover:border-primary/50 transition-colors">
-                                <span className="font-label-caps text-[10px] text-[#D4AF37] tracking-[0.15em] block mb-1">03 / Brands</span>
-                                <span className="font-title-md text-title-md text-on-surface">Commercial</span>
-                            </div>
-                            <div className="border border-outline-variant/30 p-4 hover:border-primary/50 transition-colors">
-                                <span className="font-label-caps text-[10px] text-[#D4AF37] tracking-[0.15em] block mb-1">04 / Moments</span>
-                                <span className="font-title-md text-title-md text-on-surface">Events</span>
-                            </div>
+                            {[
+                                { num: '01', label: 'Rituals', name: 'Weddings' },
+                                { num: '02', label: 'Faces', name: 'Portraits' },
+                                { num: '03', label: 'Brands', name: 'Commercial' },
+                                { num: '04', label: 'Moments', name: 'Events' },
+                            ].map((item, i) => (
+                                <div key={i} data-aos="zoom-in" data-aos-delay={i * 100} className="border border-outline-variant/30 p-4 hover:border-primary/50 transition-colors">
+                                    <span className="font-label-caps text-[10px] text-[#D4AF37] tracking-[0.15em] block mb-1">{item.num} / {item.label}</span>
+                                    <span className="font-title-md text-title-md text-on-surface">{item.name}</span>
+                                </div>
+                            ))}
                         </div>
 
                         <button onClick={() => scrollTo('contact')} className="inline-flex items-center gap-2 text-primary font-title-md text-title-md hover:text-tertiary transition-colors group">
@@ -163,7 +158,7 @@ export default function Home() {
             <section id="portfolio" className="py-24 md:py-32 px-margin-mobile md:px-margin-desktop">
                 <div className="max-w-container-max mx-auto">
                     {/* Header row */}
-                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14 reveal">
+                    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14" data-aos="fade-up">
                         <div>
                             <span className="font-label-caps text-label-caps text-[#D4AF37] tracking-[0.15em] mb-4 block">Portfolio</span>
                             <h2 className="font-display-sm text-[32px] md:text-display-sm text-primary leading-tight mb-3">Stories We've Told</h2>
@@ -188,10 +183,12 @@ export default function Home() {
                     </div>
 
                     {/* Gallery grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 reveal">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         {filteredItems.map((item, i) => (
                             <div
                                 key={item.id}
+                                data-aos="fade-up"
+                                data-aos-delay={i * 100}
                                 className={`group relative overflow-hidden bg-surface-container ${
                                     i === 0 ? 'sm:row-span-2 aspect-[3/4]' : 'aspect-[4/3]'
                                 }`}
@@ -226,7 +223,7 @@ export default function Home() {
             ═══════════════════════════════════════════ */}
             <section id="roots" className="py-24 md:py-32 px-margin-mobile md:px-margin-desktop">
                 <div className="max-w-container-max mx-auto">
-                    <div className="text-center mb-16 reveal">
+                    <div className="text-center mb-16" data-aos="fade-up">
                         <span className="font-label-caps text-label-caps text-[#D4AF37] tracking-[0.15em] mb-4 block">Identity</span>
                         <h2 className="font-display-sm text-[32px] md:text-display-sm text-primary leading-tight mb-5">Cultural Roots</h2>
                         <p className="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto">
@@ -236,7 +233,7 @@ export default function Home() {
 
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                         {motifs.map((motif, i) => (
-                            <div key={motif.id} className="reveal group text-center" style={{ transitionDelay: `${i * 100}ms` }}>
+                            <div key={motif.id} data-aos="fade-up" data-aos-delay={i * 120} className="group text-center">
                                 <div className="aspect-square overflow-hidden mb-5 relative">
                                     <div
                                         className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"
@@ -263,7 +260,7 @@ export default function Home() {
             <section id="contact" className="py-24 md:py-32 px-margin-mobile md:px-margin-desktop">
                 <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-gutter">
                     {/* Left */}
-                    <div className="lg:col-span-5 reveal">
+                    <div className="lg:col-span-5" data-aos="fade-right">
                         <span className="font-label-caps text-label-caps text-[#D4AF37] tracking-[0.15em] mb-5 block">Contact</span>
                         <h2 className="font-display-sm text-[32px] md:text-display-sm text-primary leading-tight mb-5">Let's Tell Your Story</h2>
                         <p className="font-body-md text-body-md text-on-surface-variant mb-10 max-w-md leading-relaxed">
@@ -315,7 +312,7 @@ export default function Home() {
                     </div>
 
                     {/* Right — Form */}
-                    <div className="lg:col-span-6 lg:col-start-7 reveal">
+                    <div className="lg:col-span-6 lg:col-start-7" data-aos="fade-left" data-aos-delay="150">
                         <div className="bg-surface-container-low p-8 md:p-12 border border-outline-variant/30 relative">
                             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-40"></div>
 

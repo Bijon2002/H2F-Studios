@@ -30,6 +30,8 @@
     }
     </script>
 
+<!-- AOS - Animate On Scroll -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
 <!-- Material Symbols -->
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <!-- Google Fonts -->
@@ -259,5 +261,18 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+          duration: 900,
+          easing: 'ease-out-cubic',
+          once: true,
+          offset: 80,
+          delay: 0
+        });
+      });
+    </script>
   </body>
 </html>
