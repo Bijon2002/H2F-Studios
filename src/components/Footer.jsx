@@ -9,7 +9,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="sm:col-span-2 lg:col-span-1">
                         <span className="font-display-sm text-[28px] sm:text-[32px] text-primary dark:text-primary-fixed-dim block mb-4">
-                            H2F Studios
+                            H2F STUDIOS
                         </span>
                         <p className="font-body-md text-[14px] sm:text-body-md text-on-surface-variant max-w-xs leading-relaxed">
                             Storytelling through the lens of Jaffna heritage.
