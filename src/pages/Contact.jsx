@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const ArrowForwardIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 -960 960 960" fill="currentColor">
     <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z"/>
-  </svg>
-);
-
-const MenuIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 -960 960 960" fill="currentColor">
-    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
   </svg>
 );
 
@@ -24,28 +19,7 @@ export default function Contact() {
             <div className="fixed inset-0 kolam-bg z-0 pointer-events-none"></div>
             <div className="fixed inset-0 grain-overlay z-0"></div>
 
-            {/* TopNavBar */}
-            <header className="bg-background/90 dark:bg-background/90 backdrop-blur-md fixed top-0 w-full border-b border-outline-variant/30 flat no shadows transition-all duration-500 ease-in-out z-50">
-                <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 mx-auto max-w-container-max">
-                    <Link to="/" className="font-display-sm text-display-sm tracking-tighter text-primary dark:text-primary-fixed-dim">
-                        H2F Studios
-                    </Link>
-                    {/* Desktop Nav */}
-                    <nav className="hidden md:flex gap-8">
-                        <Link className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" to="/#portfolio">Portfolio</Link>
-                        <Link className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" to="/#about">The Studio</Link>
-                        <Link className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" to="/#roots">Cultural Roots</Link>
-                        <Link className="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" to="/contact">Contact</Link>
-                    </nav>
-                    <div className="hidden md:block">
-                        <Link to="/contact" className="bg-primary text-on-primary font-label-caps text-label-caps py-2 px-6 rounded-DEFAULT hover:opacity-90 transition-opacity">Inquire</Link>
-                    </div>
-                    {/* Mobile Menu Icon */}
-                    <div className="md:hidden">
-                        <span className="text-primary cursor-pointer"><MenuIcon /></span>
-                    </div>
-                </div>
-            </header>
+            <Navbar />
 
             {/* Main Content Canvas */}
             <main className="flex-grow pt-[100px] md:pt-[120px] pb-section-gap relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
@@ -171,27 +145,7 @@ export default function Contact() {
                 </div>
             </main>
 
-            {/* Footer */}
-            <footer className="bg-surface-container-lowest dark:bg-surface-dim w-full rounded-t-none border-t border-outline-variant/50 flat no shadows z-10 relative">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
-                    <div className="flex flex-col gap-4">
-                        <span className="font-display-sm text-display-sm text-primary dark:text-primary-fixed-dim">H2F Studios</span>
-                        <p className="font-body-md text-body-md text-on-surface-variant">© 2026 H2F Studios. Storytelling through the lens of Jaffna heritage.</p>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <span className="font-label-caps text-label-caps text-on-surface-variant">Explore</span>
-                        <nav className="flex flex-col gap-2">
-                            <a className="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-y-[-2px] transition-transform duration-300" href="#">Instagram</a>
-                            <a className="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-y-[-2px] transition-transform duration-300" href="#">Vimeo</a>
-                            <a className="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-y-[-2px] transition-transform duration-300" href="#">Archive</a>
-                            <a className="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-y-[-2px] transition-transform duration-300" href="#">Privacy</a>
-                        </nav>
-                    </div>
-                    <div className="flex flex-col gap-4 items-start md:items-end">
-                        <div className="w-16 h-1 border-t-2 border-primary/30"></div>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </>
     );
 }
