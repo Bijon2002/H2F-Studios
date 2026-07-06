@@ -30,6 +30,7 @@ const motifs = [
 
 export default function Home() {
     const [activeFilter, setActiveFilter] = useState('All');
+    const [showHeroText, setShowHeroText] = useState(true);
     const videoRef = useRef(null);
     const filters = ['All', 'Weddings', 'Portraits', 'Commercial', 'Events'];
     const filteredItems = activeFilter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === activeFilter);
@@ -41,6 +42,18 @@ export default function Home() {
         }
         if (window.AOS) window.AOS.refresh();
     }, [activeFilter]);
+
+    const handleTimeUpdate = () => {
+        if (videoRef.current) {
+            // Original video is 10s. At 0.4x, it plays for 25s.
+            // Hiding during the last 2.5 seconds of playback means hiding for the last 1s of media time (time > 9.0).
+            if (videoRef.current.currentTime >= 9.0) {
+                setShowHeroText(false);
+            } else {
+                setShowHeroText(true);
+            }
+        }
+    };
 
     const scrollTo = (id) => {
         const el = document.getElementById(id);
@@ -66,6 +79,7 @@ export default function Home() {
                         loop
                         muted
                         playsInline
+                        onTimeUpdate={handleTimeUpdate}
                     >
                         <source src="/images/hero.mp4" type="video/mp4" />
                     </video>
@@ -76,7 +90,7 @@ export default function Home() {
                 </div>
 
                 {/* Hero content — vertically centered, left-aligned */}
-                <div className="relative z-10 w-full max-w-container-max mx-auto px-5 sm:px-8 lg:px-margin-desktop pt-24 sm:pt-28 lg:pt-32">
+                <div className={`relative z-10 w-full max-w-container-max mx-auto px-5 sm:px-8 lg:px-margin-desktop pt-24 sm:pt-28 lg:pt-32 transition-opacity duration-1000 ${showHeroText ? 'opacity-100' : 'opacity-0'}`}>
                     <div className="max-w-3xl">
                         <span data-aos="fade-up" className="font-label-caps text-[9px] sm:text-[10px] lg:text-[11px] text-[#D4AF37] tracking-[0.25em] mb-4 sm:mb-5 block">
                             Wedding & Event Photography — Jaffna
