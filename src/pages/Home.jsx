@@ -127,6 +127,8 @@ export default function Home() {
                         <div className="aspect-[4/3] sm:aspect-[3/2] overflow-hidden relative group shadow-2xl">
                             <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-700"></div>
                             <div
+                                role="img"
+                                aria-label="Jaffna Public Library - A symbol of intellectual heritage"
                                 className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-[2s] ease-out"
                                 style={{ backgroundImage: "url('/images/v3/jaffna_library.png')" }}
                             ></div>
@@ -151,6 +153,8 @@ export default function Home() {
                             <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-full h-full border border-[#D4AF37]/20 hidden sm:block"></div>
                             <div className="aspect-[4/5] sm:aspect-[3/4] lg:aspect-[4/5] overflow-hidden bg-surface-container">
                                 <div
+                                    role="img"
+                                    aria-label="Portrait of a Jaffna Tamil girl - Traditional heritage"
                                     className="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-1000"
                                     style={{ backgroundImage: "url('/images/v3/tamil_girl_2.png')" }}
                                 ></div>
@@ -236,6 +240,8 @@ export default function Home() {
                                 }`}
                             >
                                 <div
+                                    role="img"
+                                    aria-label={item.title}
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] ease-out group-hover:scale-110"
                                     style={{ backgroundImage: `url('${item.src}')` }}
                                 ></div>
@@ -275,6 +281,8 @@ export default function Home() {
                             <div key={motif.id} data-aos="fade-up" data-aos-delay={i * 100} className="group text-center">
                                 <div className="aspect-square overflow-hidden mb-3 sm:mb-5 relative">
                                     <div
+                                        role="img"
+                                        aria-label={motif.title}
                                         className="absolute inset-0 bg-cover bg-center group-hover:scale-110 transition-transform duration-1000"
                                         style={{ backgroundImage: `url('${motif.img}')` }}
                                     ></div>

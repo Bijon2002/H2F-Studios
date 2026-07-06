@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://h2fstudios.com/sitemap.xml
+
+Sitemap: https://h2f-studios.pages.dev/sitemap.xml
