@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact &amp; Booking | H2F Studios</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#802a0d",
+                        "inverse-on-surface": "#f2f1ee",
+                        "tertiary": "#953337",
+                        "on-background": "#1a1c1a",
+                        "surface-container": "#efeeeb",
+                        "surface-container-highest": "#e3e2e0",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-container": "#b34f30",
+                        "surface-container-high": "#e9e8e5",
+                        "primary": "#93381b",
+                        "on-primary-fixed": "#3a0a00",
+                        "on-surface-variant": "#56423c",
+                        "outline": "#8a726b",
+                        "tertiary-container": "#b54b4d",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#faf9f6",
+                        "background": "#faf9f6",
+                        "primary-fixed-dim": "#ffb59f",
+                        "on-secondary-container": "#745c00",
+                        "on-tertiary-fixed": "#410007",
+                        "surface-dim": "#dbdad7",
+                        "on-primary-container": "#ffede8",
+                        "tertiary-fixed": "#ffdad8",
+                        "secondary-container": "#fed65b",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#e3e2e0",
+                        "surface-tint": "#9f4123",
+                        "on-surface": "#1a1c1a",
+                        "on-secondary-fixed": "#241a00",
+                        "secondary-fixed-dim": "#e9c349",
+                        "inverse-surface": "#2f312f",
+                        "on-tertiary-fixed-variant": "#82252a",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#ffb59f",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffdbd1",
+                        "on-error-container": "#93000a",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed": "#ffe088",
+                        "surface-bright": "#faf9f6",
+                        "secondary": "#735c00",
+                        "tertiary-fixed-dim": "#ffb3b1",
+                        "on-tertiary-container": "#ffedec",
+                        "surface-container-low": "#f4f3f1",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#ddc0b9"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "unit": "8px",
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "body-md": ["Inter"],
+                        "display-sm": ["Playfair Display"],
+                        "title-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-sm": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "title-md": ["20px", { "lineHeight": "1.5", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .kolam-bg {
+            background-image: radial-gradient(circle at 10px 10px, rgba(212, 175, 55, 0.05) 2px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .grain-overlay {
+            background-image: url('data:image/svg+xml;utf8,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased relative min-h-screen flex flex-col">
+<!-- Subtle Kolam Pattern Background -->
+<div class="fixed inset-0 kolam-bg z-0 pointer-events-none"></div>
+<div class="fixed inset-0 grain-overlay z-0"></div>
+<!-- TopNavBar -->
+<header class="bg-background/90 dark:bg-background/90 backdrop-blur-md fixed top-0 w-full border-b border-outline-variant/30 flat no shadows transition-all duration-500 ease-in-out z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 mx-auto max-w-container-max">
+<div class="font-display-sm text-display-sm tracking-tighter text-primary dark:text-primary-fixed-dim">
+                H2F Studios
+            </div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Portfolio</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">The Studio</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Cultural Roots</a>
+<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#">Contact</a>
+</nav>
+<div class="hidden md:block">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps py-2 px-6 rounded-DEFAULT hover:opacity-90 transition-opacity">Inquire</button>
+</div>
+<!-- Mobile Menu Icon -->
+<div class="md:hidden">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[100px] md:pt-[120px] pb-section-gap relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Left Column: Intro & Info -->
+<div class="lg:col-span-5 flex flex-col justify-center mb-12 lg:mb-0">
+<h1 class="font-headline-lg-mobile md:font-display-lg text-headline-lg-mobile md:text-display-lg text-primary mb-6">Let's craft your narrative.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-md">
+                    Whether it's a momentous celebration in Jaffna or a quiet portrait session reflecting your heritage, we are here to document it with reverence and artistry.
+                </p>
+<div class="space-y-8">
+<!-- Contact Detail -->
+<div class="flex items-start gap-4 group">
+<div class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">location_on</span>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1">Studio Location</h3>
+<p class="font-body-md text-body-md text-on-background">Jaffna, Sri Lanka<br/>Available globally for select commissions.</p>
+</div>
+</div>
+<!-- Contact Detail -->
+<div class="flex items-start gap-4 group">
+<div class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">mail</span>
+</div>
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1">Direct Inquiries</h3>
+<p class="font-body-md text-body-md text-on-background">hello@h2fstudios.com</p>
+</div>
+</div>
+<!-- Social Links -->
+<div class="pt-8 border-t border-outline-variant/30 mt-8">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-4">Connect</h3>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Facebook</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">WhatsApp</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Booking Form -->
+<div class="lg:col-span-7 relative">
+<div class="bg-surface p-8 md:p-12 border border-outline-variant/50 relative shadow-[0_10px_30px_rgba(149,51,55,0.05)]">
+<!-- Gold accent line -->
+<div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-50"></div>
+<h2 class="font-title-md text-title-md text-primary mb-8">Booking Inquiry</h2>
+<form action="https://formspree.io/f/placeholder" class="space-y-6" method="POST">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Input -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2" for="name">Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-background placeholder-on-surface-variant/50 transition-colors" id="name" name="name" required="" type="text"/>
+</div>
+<!-- Input -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2" for="email">Email Address</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-background placeholder-on-surface-variant/50 transition-colors" id="email" name="email" required="" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Select -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2" for="event-type">Event / Commission Type</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-background transition-colors appearance-none" id="event-type" name="event-type">
+<option disabled="" selected="" value="">Select a category</option>
+<option value="wedding">Traditional Wedding</option>
+<option value="portrait">Heritage Portraiture</option>
+<option value="editorial">Editorial / Commercial</option>
+<option value="other">Other</option>
+</select>
+</div>
+<!-- Date -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2" for="date">Proposed Date</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-background placeholder-on-surface-variant/50 transition-colors" id="date" name="date" type="date"/>
+</div>
+</div>
+<!-- Textarea -->
+<div class="relative">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2" for="message">Share your vision</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:border-primary focus:ring-0 px-0 py-2 font-body-md text-body-md text-on-background placeholder-on-surface-variant/50 transition-colors resize-none" id="message" name="message" placeholder="Tell us about the significance of this moment..." required="" rows="4"></textarea>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="bg-primary text-on-primary font-label-caps text-label-caps py-4 px-8 w-full hover:bg-tertiary transition-colors duration-300 flex justify-center items-center gap-2 group" type="submit">
+                                Submit Inquiry
+                                <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- Map Section -->
+<div class="mt-section-gap">
+<div class="w-full h-64 md:h-96 bg-surface-container-low border border-outline-variant/30 relative overflow-hidden group">
+<!-- Using a subtle placeholder image to act as the map background in this high-end aesthetic -->
+<div class="bg-cover bg-center w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-700" data-alt="A highly detailed, minimalist stylized map of Jaffna, Sri Lanka, designed in a modern editorial style. The map uses a cream and terracotta color palette to match a premium heritage brand. Delicate gold lines represent major roads, and subtle dot patterns inspired by Kolam indicate landmarks. The overall aesthetic is clean, sophisticated, and artistic, avoiding a generic digital map look." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAKoWEuzeGc0m-IAk4BDOZCsAIRWBqJR92CyEitQcHIG3Ks9E9AuWTzq-5n1CGDVILwkzZqjdz9RlM7IWVrCKxMLi9nCCQvJ561bZmDjAdfidvNzR9EtwzPTt6SP5ryluxuw_hnSD8k-2PdKcbIAabBlmy_6HlxqpfdByEj9HOFiZT3-NaZ8XOTnKDMJ1OSEKgBaQKXTX_xGEZ48SNnIxHK7_vqBuF5ZbFOoGGsCXNj9qyYPq9WXT3V')"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim w-full rounded-t-none border-t border-outline-variant/50 flat no shadows z-10 relative">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<span class="font-display-sm text-display-sm text-primary dark:text-primary-fixed-dim">H2F Studios</span>
+<p class="font-body-md text-body-md text-on-surface-variant">© 2024 H2F Studios. Storytelling through the lens of Jaffna heritage.</p>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Explore</span>
+<nav class="flex flex-col gap-2">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-y-[-2px] transition-transform duration-300" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-y-[-2px] transition-transform duration-300" href="#">Vimeo</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-y-[-2px] transition-transform duration-300" href="#">Archive</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:translate-y-[-2px] transition-transform duration-300" href="#">Privacy</a>
+</nav>
+</div>
+<div class="flex flex-col gap-4 items-start md:items-end">
+<div class="w-16 h-1 border-t-2 border-primary/30"></div>
+</div>
+</div>
+</footer>
+</body></html>

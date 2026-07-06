@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>H2F Studios - Capturing Jaffna's Moments, Traditionally Timeless</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config injected from system prompt -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-primary-fixed-variant": "#802a0d",
+                      "inverse-on-surface": "#f2f1ee",
+                      "tertiary": "#953337",
+                      "on-background": "#1a1c1a",
+                      "surface-container": "#efeeeb",
+                      "surface-container-highest": "#e3e2e0",
+                      "on-secondary-fixed-variant": "#574500",
+                      "primary-container": "#b34f30",
+                      "surface-container-high": "#e9e8e5",
+                      "primary": "#93381b",
+                      "on-primary-fixed": "#3a0a00",
+                      "on-surface-variant": "#56423c",
+                      "outline": "#8a726b",
+                      "tertiary-container": "#b54b4d",
+                      "on-tertiary": "#ffffff",
+                      "surface": "#faf9f6",
+                      "background": "#faf9f6",
+                      "primary-fixed-dim": "#ffb59f",
+                      "on-secondary-container": "#745c00",
+                      "on-tertiary-fixed": "#410007",
+                      "surface-dim": "#dbdad7",
+                      "on-primary-container": "#ffede8",
+                      "tertiary-fixed": "#ffdad8",
+                      "secondary-container": "#fed65b",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#e3e2e0",
+                      "surface-tint": "#9f4123",
+                      "on-surface": "#1a1c1a",
+                      "on-secondary-fixed": "#241a00",
+                      "secondary-fixed-dim": "#e9c349",
+                      "inverse-surface": "#2f312f",
+                      "on-tertiary-fixed-variant": "#82252a",
+                      "on-primary": "#ffffff",
+                      "inverse-primary": "#ffb59f",
+                      "on-error": "#ffffff",
+                      "primary-fixed": "#ffdbd1",
+                      "on-error-container": "#93000a",
+                      "on-secondary": "#ffffff",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed": "#ffe088",
+                      "surface-bright": "#faf9f6",
+                      "secondary": "#735c00",
+                      "tertiary-fixed-dim": "#ffb3b1",
+                      "on-tertiary-container": "#ffedec",
+                      "surface-container-low": "#f4f3f1",
+                      "error-container": "#ffdad6",
+                      "outline-variant": "#ddc0b9"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "margin-mobile": "20px",
+                      "unit": "8px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "container-max": "1280px",
+                      "section-gap": "120px"
+              },
+              "fontFamily": {
+                      "display-lg": [
+                              "Playfair Display"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-sm": [
+                              "Playfair Display"
+                      ],
+                      "title-md": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "label-caps": [
+                              "Inter"
+                      ],
+                      "headline-lg-mobile": [
+                              "Playfair Display"
+                      ],
+                      "headline-lg": [
+                              "Playfair Display"
+                      ]
+              },
+              "fontSize": {
+                      "display-lg": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-sm": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "letterSpacing": "0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "label-caps": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "28px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        /* Grain Texture Overlay */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.4;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            mix-blend-mode: multiply;
+        }
+
+        /* Ken Burns Effect */
+        @keyframes kenBurns {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+        .ken-burns {
+            animation: kenBurns 20s ease-out forwards;
+        }
+
+        /* Parallax Background */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Kolam Dots Background */
+        .kolam-grid {
+            background-image: radial-gradient(circle at center, rgba(138, 114, 107, 0.15) 1.5px, transparent 1.5px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container relative">
+<!-- Tactile Grain Layer -->
+<div class="grain-overlay"></div>
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-40 bg-background/90 dark:bg-background/90 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-500 ease-in-out hidden md:block" id="mainNav">
+<div class="flex justify-between items-center w-full px-margin-desktop py-4 mx-auto max-w-container-max">
+<a class="font-display-sm text-display-sm tracking-tighter text-primary dark:text-primary-fixed-dim" href="#">
+                H2F Studios
+            </a>
+<nav class="flex gap-8">
+<!-- Assuming 'The Studio' is conceptually closest to a Home/Overview page intent -->
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-caps text-label-caps hover:bg-surface-container-low/50 transition-all duration-500 ease-in-out" href="#about">The Studio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps hover:bg-surface-container-low/50 transition-all duration-500 ease-in-out" href="#portfolio">Portfolio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps hover:bg-surface-container-low/50 transition-all duration-500 ease-in-out" href="#roots">Cultural Roots</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300 font-label-caps text-label-caps hover:bg-surface-container-low/50 transition-all duration-500 ease-in-out" href="#contact">Contact</a>
+</nav>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 rounded hover:bg-primary/90 transition-colors">
+                Inquire
+            </button>
+</div>
+</header>
+<!-- Mobile Nav Header (Simplified) -->
+<header class="fixed top-0 w-full z-40 bg-background/95 backdrop-blur-md border-b border-outline-variant/30 py-4 px-margin-mobile md:hidden flex justify-between items-center">
+<a class="font-display-sm text-[24px] tracking-tighter text-primary" href="#">
+            H2F
+        </a>
+<button class="text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</header>
+<!-- Main Content -->
+<main>
+<!-- Hero Section -->
+<section class="relative h-screen w-full overflow-hidden bg-on-background flex items-center justify-center">
+<!-- Ken Burns Background -->
+<div class="absolute inset-0 w-full h-full">
+<img alt="Cinematic, high-resolution hero image for a Jaffna photography portfolio. A breathtaking sunset over the Jaffna lagoon with a silhouette of palmyrah trees. Warm terracotta and gold lighting. Professional photography, sharp focus, 8k." class="w-full h-full object-cover ken-burns opacity-70" src="/images/v2/img_1.webp"/>
+</div>
+<!-- Hero Content -->
+<div class="relative z-10 flex flex-col items-center text-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mt-16 md:mt-0">
+<img alt="H2F Studios Logo" class="w-32 h-32 md:w-48 md:h-48 rounded-sm mb-8 reveal" src="/images/v2/img_2.webp"/>
+<h1 class="font-display-lg text-display-lg text-on-primary mb-4 reveal max-w-4xl drop-shadow-lg hidden md:block">
+                    Capturing Jaffna's Moments, Traditionally Timeless
+                </h1>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary mb-4 reveal max-w-4xl drop-shadow-lg md:hidden">
+                    Capturing Jaffna's Moments, Traditionally Timeless
+                </h1>
+<p class="font-body-lg text-body-lg text-surface-container max-w-2xl reveal delay-100">
+                    A sophisticated blend of ancient cultural motifs and contemporary minimalist luxury.
+                </p>
+<button class="mt-8 bg-transparent border border-[#D4AF37] text-[#D4AF37] font-label-caps text-label-caps px-8 py-4 rounded hover:bg-[#D4AF37]/10 transition-colors reveal delay-200 backdrop-blur-sm">
+                    Explore The Studio
+                </button>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center reveal delay-300">
+<span class="font-label-caps text-label-caps text-on-primary/70 mb-2 tracking-widest">Scroll</span>
+<div class="w-[1px] h-12 bg-gradient-to-b from-[#D4AF37] to-transparent"></div>
+</div>
+</section>
+<!-- About Section (Parallax & Asymmetric Grid) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop kolam-grid relative" id="about">
+<div class="max-w-container-max mx-auto grid grid-cols-4 md:grid-cols-12 gap-gutter items-center">
+<!-- Text Column -->
+<div class="col-span-4 md:col-span-5 md:col-start-2 reveal relative z-10 order-2 md:order-1 mt-12 md:mt-0">
+<span class="font-label-caps text-label-caps text-primary-container mb-4 block">The Studio</span>
+<h2 class="font-display-sm text-display-sm text-primary mb-6 hidden md:block">The Soul of Jaffna Photography</h2>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-6 md:hidden">The Soul of Jaffna Photography</h2>
+<div class="w-12 border-t-2 border-[#D4AF37] mb-8"></div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+                        We don't just take pictures; we weave narratives. Deeply rooted in the vibrant heritage of Jaffna, our studio merges traditional reverence with modern editorial aesthetics.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">
+                        Every frame is a testament to the tactile beauty of our culture—from the intricate patterns of pulling kolam to the timeless elegance of gold silk.
+                    </p>
+<a class="inline-flex items-center gap-2 text-primary font-title-md text-title-md hover:text-primary-container transition-colors group" href="#">
+                        Discover our story
+                        <span class="material-symbols-outlined transform group-hover:translate-x-1 transition-transform" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</a>
+</div>
+<!-- Image Column (Parallax) -->
+<div class="col-span-4 md:col-span-5 md:col-start-8 reveal order-1 md:order-2 h-[500px] md:h-[700px] relative w-full">
+<div class="absolute inset-0 border border-[#D4AF37]/30 translate-x-4 translate-y-4"></div>
+<div class="w-full h-full overflow-hidden bg-surface-container relative">
+<div class="absolute inset-0 w-full h-[120%] -top-[10%] parallax-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmJqhzEsTYI3RwM6RVjh47M3rMxZD3-d26PIM7-NuYHfAlb3OdvoxiC7nNsxF_ijUfCDBTPx_hhoaTrtFblYbyy0C54THs8N-zvXhRA3gWjPpFuyxHvkiRk0eeQDfdU_OV9a4rD43wdAON0R7sdVAn98h5woGDgmgGtNIK6M4MVLWeoopKdeXPJzGalqkFWV4m4cf1Dr1J0In2uTieQcxxhemR1LkueWQEMJV6shStY690Rss3fnZY');"></div>
+</div>
+<!-- Tactile tag -->
+<div class="absolute -bottom-4 -left-4 bg-surface px-4 py-2 border border-outline-variant rounded-full shadow-sm">
+<span class="font-label-caps text-label-caps text-tertiary">Heritage Portraiture</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Overview (Bento Grid) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low border-t border-outline-variant/20 relative" id="portfolio">
+<div class="max-w-container-max mx-auto mb-16 text-center reveal">
+<h2 class="font-display-sm text-display-sm text-primary mb-4 hidden md:block">Our Expertise</h2>
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-4 md:hidden">Our Expertise</h2>
+<div class="flex justify-center items-center gap-2 text-tertiary">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary opacity-50"></span>
+<span class="w-2 h-2 rounded-full bg-tertiary opacity-25"></span>
+</div>
+</div>
+<div class="max-w-container-max mx-auto grid grid-cols-4 md:grid-cols-12 gap-gutter auto-rows-[300px] md:auto-rows-[400px]">
+<!-- Card 1: Weddings (Spans 8 cols) -->
+<div class="col-span-4 md:col-span-8 relative group overflow-hidden bg-surface-container cursor-pointer reveal">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A grand, traditional Jaffna Hindu wedding ceremony. The bride and groom are performing rituals around a sacred fire (Agni). Vibrant colors of silk sarees, gold jewelry glowing in the warm ambient light. High-contrast, editorial style photography capturing the emotional depth of the moment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD23rqxE1TEI0VX98vpSltpvzDOUFxWHSCWEgAygaDDhQqEIduy3OYNR1VrM-s-0idm7eHCMdH5t4VCxK8WOrW01fSbq5nKzdvY-qM7E5StNa_x7ZjR4iMuejtQHrFc1tu0Mab9jtsDXmldvnr_vMSoxDEOancdGvQx8eO6GbiQM-MtOYx5725-qqle64FD0EzGeJGXYGWxuJz1b1-3MjN60xN1lPmJeTvHiI1mqBLwXbk7O38FwNCx')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent group-hover:bg-tertiary/20 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label-caps text-label-caps text-[#D4AF37] mb-2 block">01 / Rituals</span>
+<h3 class="font-display-sm text-display-sm text-on-primary hidden md:block">Weddings</h3>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary md:hidden">Weddings</h3>
+</div>
+<span class="material-symbols-outlined text-[#D4AF37] opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-300" style="font-variation-settings: 'FILL' 0;">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Portraits (Spans 4 cols) -->
+<div class="col-span-4 md:col-span-4 relative group overflow-hidden bg-surface-container cursor-pointer reveal delay-100">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="Intimate, dramatic black and white studio portrait of a Jaffna elder. Heavy contrast emphasizing the texture of their skin and the wisdom in their eyes. Minimalist lighting setup, editorial fashion style approach to traditional subjects." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDX8s2qNDd3X2JggyE-26V-9j0sGYVgcCf1zWRE_UIbAFoU9qZLkR03V3L4OKKmAXjKQaKpN0hPHxsK1wLrRec5XCm47y3aSLxsFkN_NLRoRj-1P75eD7kosaXPz8pOrx_GT5x7XgX4ykSS2gK8dPqD-twu3PHCO9egKP6W5yCC70L4bZFRkd0FZJC5TflqPqbThuXHjUStefU7nWyjJ0vcn-H2hB1Ca5HlIlldwT-SBMhm5P6pTeGh')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent group-hover:bg-tertiary/20 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="font-label-caps text-label-caps text-[#D4AF37] mb-2 block">02 / Soul</span>
+<h3 class="font-title-md text-title-md text-on-primary">Portraits</h3>
+</div>
+</div>
+<!-- Card 3: Commercial (Spans 5 cols) -->
+<div class="col-span-4 md:col-span-5 relative group overflow-hidden bg-surface-container cursor-pointer reveal">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="High-end commercial flat lay of traditional Jaffna spices and brass cookware on a dark, textured stone surface. Cinematic, moody lighting highlighting the rich reds, yellows, and metallic reflections. Sophisticated culinary photography." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2oc_6mIeB6RKnSdCt8meYJH0rve0WhR3j-Bhi-f5SsqhMQrmCCzA2VHQjrbBa_M2xOrnsMu6pKRXnJLPx2dH3HTVMnMyQ0Xk5vAHr7Q5wvfRDqwJmm4RyaNcqX3jCc0wpJbTErMI9uE7dwvqpjxMSiph9IksU6tWjVhFkIIUmYwgXkFlGVkenJ1o01TxSBnncDddbwxGAOu6G1-LJw4j45zi3t5bkzLUvgYTZ_bCBHFKzDD1lML5D')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent group-hover:bg-tertiary/20 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<span class="font-label-caps text-label-caps text-[#D4AF37] mb-2 block">03 / Craft</span>
+<h3 class="font-title-md text-title-md text-on-primary">Commercial</h3>
+</div>
+</div>
+<!-- Card 4: Events (Spans 7 cols) -->
+<div class="col-span-4 md:col-span-7 relative group overflow-hidden bg-surface-container cursor-pointer reveal delay-100">
+<div class="absolute inset-0 bg-cover bg-center w-full h-full transition-transform duration-700 group-hover:scale-105" data-alt="A lively cultural festival in Jaffna, captured with a slow shutter speed to show the motion of traditional dancers. Brightly colored costumes blurred against a sharp, focused background of a temple gopuram. Energetic, dynamic, and colorful." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC19hHEX5Sh-gXT0waH7Q1PXHLoIgIkPN2EcPdd4Fzmk6Wu84ET7bpUe8o8DFdktoHM9F8FDRjR4MUV9yMdEkPK9Cdcom5fmbvrG3POekXm_lIvI3oQZB5wM_uDtDp179umNPefzsxGBqhZgbqXY5rLz3yO6oqGVVJ6MbEm3zwbtdEOTzy16PLJi6fP81M_8VpduaTsQ4mCvptYCZcAEq6UiSKFmiqACMcG1akQxX5YLMBeBX227x8k')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/80 via-transparent to-transparent group-hover:bg-tertiary/20 transition-colors duration-500"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex justify-between items-end">
+<div>
+<span class="font-label-caps text-label-caps text-[#D4AF37] mb-2 block">04 / Energy</span>
+<h3 class="font-display-sm text-display-sm text-on-primary hidden md:block">Events</h3>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-primary md:hidden">Events</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim w-full rounded-t-none border-t border-outline-variant/50">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop py-section-gap max-w-container-max mx-auto">
+<!-- Brand -->
+<div class="col-span-1">
+<span class="font-display-sm text-display-sm text-primary dark:text-primary-fixed-dim block mb-4">
+                    H2F Studios
+                </span>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">
+                    © 2024 H2F Studios. Storytelling through the lens of Jaffna heritage.
+                </p>
+</div>
+<!-- Links -->
+<div class="col-span-1 md:col-span-2 flex flex-wrap gap-8 md:justify-end items-start mt-8 md:mt-0">
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:opacity-80 transition-opacity hover:translate-y-[-2px] transition-transform duration-300" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:opacity-80 transition-opacity hover:translate-y-[-2px] transition-transform duration-300" href="#">Vimeo</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:opacity-80 transition-opacity hover:translate-y-[-2px] transition-transform duration-300" href="#">Archive</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:opacity-80 transition-opacity hover:translate-y-[-2px] transition-transform duration-300" href="#">Privacy</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- Interactive Scripts -->
+<script>
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: stop observing once revealed
+                    // observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Parallax effect on scroll for backgrounds
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax-bg');
+            
+            parallaxElements.forEach(el => {
+                const speed = 0.4;
+                const limit = el.parentElement.offsetTop;
+                if(scrolled > limit - window.innerHeight) {
+                   el.style.transform = `translateY(${(scrolled - limit) * speed}px)`;
+                }
+            });
+
+            // Nav backdrop blur adjustment on scroll
+            const nav = document.getElementById('mainNav');
+            if (scrolled > 50) {
+                nav.classList.add('shadow-sm');
+                // Subtle gold border reveal
+                nav.style.borderBottomColor = 'rgba(212, 175, 55, 0.3)'; // #D4AF37
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.style.borderBottomColor = ''; // Revert to class style
+            }
+        });
+    </script>
+</body></html>
