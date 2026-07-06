@@ -35,7 +35,7 @@ export default function Navbar() {
         ? 'bg-background/95 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm'
         : 'bg-transparent border-b border-transparent';
     const textColor = scrolled ? 'text-on-surface-variant' : 'text-white/80';
-    const logoColor = scrolled ? 'text-primary' : 'text-white';
+    const logoColor = 'text-[#D4AF37]';
     const btnStyle = scrolled
         ? 'bg-primary text-on-primary hover:bg-tertiary'
         : 'bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20';

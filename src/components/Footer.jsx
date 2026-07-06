@@ -8,7 +8,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-8">
                     {/* Brand */}
                     <div className="sm:col-span-2 lg:col-span-1">
-                        <span className="font-poppins font-bold text-[28px] sm:text-[32px] text-primary dark:text-primary-fixed-dim block mb-4">
+                        <span className="font-poppins font-bold text-[28px] sm:text-[32px] text-[#D4AF37] block mb-4">
                             H2F STUDIOS
                         </span>
                         <p className="font-body-md text-[14px] sm:text-body-md text-on-surface-variant max-w-xs leading-relaxed">
