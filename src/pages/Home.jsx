@@ -38,16 +38,16 @@ export default function Home() {
     // Slow-motion video + AOS refresh
     useEffect(() => {
         if (videoRef.current) {
-            videoRef.current.playbackRate = 0.4;
+            videoRef.current.playbackRate = 0.79;
         }
         if (window.AOS) window.AOS.refresh();
     }, [activeFilter]);
 
     const handleTimeUpdate = () => {
         if (videoRef.current) {
-            // Original video is 10s. At 0.4x, it plays for 25s.
-            // Hiding during the last 3 seconds of playback means hiding for the last 1.2s of media time (time > 8.8).
-            if (videoRef.current.currentTime >= 8.8) {
+            // Original video is 10s. At 0.79x, it plays for ~12.65s.
+            // Hiding during the last 3 seconds of playback means hiding for the last 2.37s of media time (time > 7.63).
+            if (videoRef.current.currentTime >= 7.63) {
                 setShowHeroText(false);
             } else {
                 setShowHeroText(true);
