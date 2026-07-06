@@ -11,13 +11,22 @@ export default function Footer() {
                     <p className="font-body-md text-body-md text-on-surface-variant max-w-xs">
                         © 2026 H2F Studios. Storytelling through the lens of Jaffna heritage.
                     </p>
+                    <p className="font-body-sm text-body-sm text-on-surface-variant max-w-xs mt-2">
+                        Created by <a href="https://bijonn.pages.dev/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">H2F solutions</a>
+                    </p>
                 </div>
                 <div className="col-span-1 md:col-span-2 flex flex-wrap gap-8 md:justify-end items-start mt-8 md:mt-0">
                     <div className="flex flex-col gap-4">
+                        <span className="font-label-caps text-label-caps text-on-surface-variant">Contact</span>
+                        <a className="font-body-md text-body-md text-primary font-bold hover:opacity-80 transition-opacity" href="tel:0720172910">Call for shoots: 0720172910</a>
+                    </div>
+                    <div className="flex flex-col gap-4">
+                        <span className="font-label-caps text-label-caps text-on-surface-variant">Explore</span>
                         <a className="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:opacity-80 transition-opacity hover:translate-y-[-2px] transition-transform duration-300" href="#">Instagram</a>
                         <a className="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:opacity-80 transition-opacity hover:translate-y-[-2px] transition-transform duration-300" href="#">Vimeo</a>
                     </div>
                     <div className="flex flex-col gap-4">
+                        <span className="font-label-caps text-label-caps text-on-surface-variant">Legal</span>
                         <a className="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:opacity-80 transition-opacity hover:translate-y-[-2px] transition-transform duration-300" href="#">Archive</a>
                         <a className="font-body-md text-body-md text-on-surface-variant hover:text-tertiary hover:opacity-80 transition-opacity hover:translate-y-[-2px] transition-transform duration-300" href="#">Privacy</a>
                     </div>
