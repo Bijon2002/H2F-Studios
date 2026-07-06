@@ -45,7 +45,7 @@ export default function Navbar() {
             {/* Desktop Nav — hidden below lg (1024px) */}
             <header className={`fixed top-0 w-full z-50 transition-all duration-500 hidden lg:block ${navBg}`}>
                 <div className="flex justify-between items-center w-full px-8 xl:px-margin-desktop py-5 mx-auto max-w-container-max">
-                    <button onClick={() => scrollTo('hero')} className={`font-display-sm text-[28px] xl:text-[32px] tracking-[-0.03em] transition-colors duration-500 ${logoColor}`}>
+                    <button onClick={() => scrollTo('hero')} className={`font-poppins font-bold text-[28px] xl:text-[32px] tracking-[-0.03em] transition-colors duration-500 ${logoColor}`}>
                         H2F STUDIOS
                     </button>
                     <nav className="flex gap-6 xl:gap-10 items-center">
@@ -62,7 +62,7 @@ export default function Navbar() {
 
             {/* Mobile + Tablet Nav — visible below lg */}
             <header className={`fixed top-0 w-full z-50 py-4 px-5 sm:px-8 lg:hidden flex justify-between items-center transition-all duration-500 ${navBg}`}>
-                <button onClick={() => scrollTo('hero')} className={`font-display-sm text-[22px] sm:text-[26px] tracking-[-0.03em] transition-colors duration-500 ${logoColor}`}>
+                <button onClick={() => scrollTo('hero')} className={`font-poppins font-bold text-[22px] sm:text-[26px] tracking-[-0.03em] transition-colors duration-500 ${logoColor}`}>
                     H2F STUDIOS
                 </button>
                 <div className="flex items-center gap-4">
