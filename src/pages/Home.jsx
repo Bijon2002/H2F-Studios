@@ -35,19 +35,19 @@ export default function Home() {
     const filters = ['All', 'Weddings', 'Portraits', 'Commercial', 'Events'];
     const filteredItems = activeFilter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === activeFilter);
 
-    // Slow-motion video + AOS refresh
+    // Normal video + AOS refresh
     useEffect(() => {
         if (videoRef.current) {
-            videoRef.current.playbackRate = 0.79;
+            videoRef.current.playbackRate = 1.0;
         }
         if (window.AOS) window.AOS.refresh();
     }, [activeFilter]);
 
     const handleTimeUpdate = () => {
         if (videoRef.current) {
-            // Original video is 10s. At 0.79x, it plays for ~12.65s.
-            // Hiding during the last 3 seconds of playback means hiding for the last 2.37s of media time (time > 7.63).
-            if (videoRef.current.currentTime >= 7.63) {
+            // Original video is 10s. At 1.0x, it plays for 10s.
+            // Hiding during the last 3 seconds means hiding when time > 7.0.
+            if (videoRef.current.currentTime >= 7.0) {
                 setShowHeroText(false);
             } else {
                 setShowHeroText(true);
@@ -83,10 +83,12 @@ export default function Home() {
                     >
                         <source src="/images/hero.mp4" type="video/mp4" />
                     </video>
-                    {/* Cinematic overlays — darker for text readability */}
-                    <div className="absolute inset-0 bg-black/40"></div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0503] via-[#0a0503]/40 to-transparent"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#0a0503]/60 via-transparent to-transparent"></div>
+                    {/* Cinematic overlays — darker for text readability, fades out with text */}
+                    <div className={`absolute inset-0 transition-opacity duration-1000 ${showHeroText ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className="absolute inset-0 bg-black/40"></div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0503] via-[#0a0503]/40 to-transparent"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0503]/60 via-transparent to-transparent"></div>
+                    </div>
                 </div>
 
                 {/* Hero content — vertically centered, left-aligned */}
