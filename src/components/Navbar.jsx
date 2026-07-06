@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const MenuIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 -960 960 960" fill="currentColor">
@@ -14,6 +14,15 @@ const CloseIcon = () => (
 
 export default function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrolled(window.scrollY > 80);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const scrollTo = (id) => {
         setMobileOpen(false);
@@ -21,37 +30,46 @@ export default function Navbar() {
         if (el) el.scrollIntoView({ behavior: 'smooth' });
     };
 
+    // Dynamic styles: transparent on hero, solid after scroll
+    const navBg = scrolled
+        ? 'bg-background/95 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm'
+        : 'bg-transparent border-b border-transparent';
+    const textColor = scrolled ? 'text-on-surface-variant' : 'text-white/80';
+    const logoColor = scrolled ? 'text-primary' : 'text-white';
+    const btnStyle = scrolled
+        ? 'bg-primary text-on-primary hover:bg-tertiary'
+        : 'bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20';
+
     return (
         <>
             {/* Desktop Nav — hidden below lg (1024px) */}
-            <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-outline-variant/20 transition-all duration-500 hidden lg:block">
+            <header className={`fixed top-0 w-full z-50 transition-all duration-500 hidden lg:block ${navBg}`}>
                 <div className="flex justify-between items-center w-full px-8 xl:px-margin-desktop py-5 mx-auto max-w-container-max">
-                    <button onClick={() => scrollTo('hero')} className="font-display-sm text-[28px] xl:text-[32px] tracking-[-0.03em] text-primary">
+                    <button onClick={() => scrollTo('hero')} className={`font-display-sm text-[28px] xl:text-[32px] tracking-[-0.03em] transition-colors duration-500 ${logoColor}`}>
                         H2F Studios
                     </button>
                     <nav className="flex gap-6 xl:gap-10 items-center">
-                        <button onClick={() => scrollTo('studio')} className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300">The Studio</button>
-                        <button onClick={() => scrollTo('portfolio')} className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300">Portfolio</button>
-                        <button onClick={() => scrollTo('roots')} className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300">Cultural Roots</button>
-                        <button onClick={() => scrollTo('contact')} className="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300">Contact</button>
+                        <button onClick={() => scrollTo('studio')} className={`font-label-caps text-label-caps transition-colors duration-300 hover:text-[#D4AF37] ${textColor}`}>The Studio</button>
+                        <button onClick={() => scrollTo('portfolio')} className={`font-label-caps text-label-caps transition-colors duration-300 hover:text-[#D4AF37] ${textColor}`}>Portfolio</button>
+                        <button onClick={() => scrollTo('roots')} className={`font-label-caps text-label-caps transition-colors duration-300 hover:text-[#D4AF37] ${textColor}`}>Cultural Roots</button>
+                        <button onClick={() => scrollTo('contact')} className={`font-label-caps text-label-caps transition-colors duration-300 hover:text-[#D4AF37] ${textColor}`}>Contact</button>
                     </nav>
-                    <button onClick={() => scrollTo('contact')} className="bg-primary text-on-primary font-label-caps text-label-caps px-7 py-3 hover:bg-tertiary transition-colors duration-300">
+                    <button onClick={() => scrollTo('contact')} className={`font-label-caps text-label-caps px-7 py-3 transition-all duration-300 ${btnStyle}`}>
                         Inquire
                     </button>
                 </div>
             </header>
 
             {/* Mobile + Tablet Nav — visible below lg */}
-            <header className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-xl border-b border-outline-variant/20 py-4 px-5 sm:px-8 lg:hidden flex justify-between items-center">
-                <button onClick={() => scrollTo('hero')} className="font-display-sm text-[22px] sm:text-[26px] tracking-[-0.03em] text-primary">
+            <header className={`fixed top-0 w-full z-50 py-4 px-5 sm:px-8 lg:hidden flex justify-between items-center transition-all duration-500 ${navBg}`}>
+                <button onClick={() => scrollTo('hero')} className={`font-display-sm text-[22px] sm:text-[26px] tracking-[-0.03em] transition-colors duration-500 ${logoColor}`}>
                     H2F Studios
                 </button>
                 <div className="flex items-center gap-4">
-                    {/* Show Inquire on tablet */}
-                    <button onClick={() => scrollTo('contact')} className="hidden sm:block bg-primary text-on-primary font-label-caps text-label-caps px-5 py-2.5 hover:bg-tertiary transition-colors">
+                    <button onClick={() => scrollTo('contact')} className={`hidden sm:block font-label-caps text-label-caps px-5 py-2.5 transition-all duration-300 ${btnStyle}`}>
                         Inquire
                     </button>
-                    <button onClick={() => setMobileOpen(!mobileOpen)} className="text-primary p-1">
+                    <button onClick={() => setMobileOpen(!mobileOpen)} className={`p-1 transition-colors ${scrolled ? 'text-primary' : 'text-white'}`}>
                         {mobileOpen ? <CloseIcon /> : <MenuIcon />}
                     </button>
                 </div>

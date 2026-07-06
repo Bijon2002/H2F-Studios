@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -30,10 +30,15 @@ const motifs = [
 
 export default function Home() {
     const [activeFilter, setActiveFilter] = useState('All');
+    const videoRef = useRef(null);
     const filters = ['All', 'Weddings', 'Portraits', 'Commercial', 'Events'];
     const filteredItems = activeFilter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === activeFilter);
 
+    // Slow-motion video + AOS refresh
     useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.playbackRate = 0.4;
+        }
         if (window.AOS) window.AOS.refresh();
     }, [activeFilter]);
 
@@ -48,55 +53,95 @@ export default function Home() {
             <Navbar />
 
             {/* ═══════════════════════════════════════════
-                HERO — Full-screen VIDEO
-                Mobile: bottom-left, smaller text
-                Tablet: larger text, more padding
-                Desktop: full editorial layout
+                HERO — Full-screen slow-motion VIDEO
+                Fixed: text no longer hidden behind navbar
             ═══════════════════════════════════════════ */}
-            <section id="hero" className="relative w-full h-[100svh] flex items-end justify-center overflow-hidden">
-                {/* Background video */}
+            <section id="hero" className="relative w-full h-[100svh] min-h-[600px] flex items-center justify-start overflow-hidden">
+                {/* Background video — slow-motion */}
                 <div className="absolute inset-0 z-0">
-                    <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+                    <video
+                        ref={videoRef}
+                        className="w-full h-full object-cover object-top"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                    >
                         <source src="/images/hero.mp4" type="video/mp4" />
                     </video>
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0503] via-[#0a0503]/60 to-[#0a0503]/20"></div>
+                    {/* Cinematic overlays — darker for text readability */}
+                    <div className="absolute inset-0 bg-black/40"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0503] via-[#0a0503]/40 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0a0503]/60 via-transparent to-transparent"></div>
                 </div>
 
-                {/* Hero content */}
-                <div className="relative z-10 w-full max-w-container-max mx-auto px-5 sm:px-8 lg:px-margin-desktop pb-16 sm:pb-20 lg:pb-28">
-                    <div className="max-w-2xl">
-                        <span data-aos="fade-up" className="font-label-caps text-[10px] sm:text-label-caps text-[#D4AF37] tracking-[0.2em] mb-4 sm:mb-6 block">
-                            Wedding & Event Photography
+                {/* Hero content — vertically centered, left-aligned */}
+                <div className="relative z-10 w-full max-w-container-max mx-auto px-5 sm:px-8 lg:px-margin-desktop pt-24 sm:pt-28 lg:pt-32">
+                    <div className="max-w-3xl">
+                        <span data-aos="fade-up" className="font-label-caps text-[9px] sm:text-[10px] lg:text-[11px] text-[#D4AF37] tracking-[0.25em] mb-4 sm:mb-5 block">
+                            Wedding & Event Photography — Jaffna
                         </span>
-                        <h1 data-aos="fade-up" data-aos-delay="100" className="font-display-lg text-[28px] sm:text-[42px] md:text-[52px] lg:text-[64px] xl:text-[72px] leading-[1.08] tracking-[-0.02em] text-white mb-4 sm:mb-6">
-                            Capturing Jaffna's Moments, Traditionally Timeless
+                        <h1 data-aos="fade-up" data-aos-delay="100" className="font-display-lg text-[26px] sm:text-[36px] md:text-[46px] lg:text-[56px] xl:text-[64px] leading-[1.05] tracking-[-0.03em] text-white mb-4 sm:mb-5">
+                            Capturing Jaffna's<br/> Moments, Traditionally<br className="hidden sm:block"/> Timeless
                         </h1>
-                        <p data-aos="fade-up" data-aos-delay="200" className="font-body-lg text-[14px] sm:text-[16px] lg:text-body-lg text-white/70 max-w-lg mb-8 sm:mb-10 leading-relaxed">
+                        <p data-aos="fade-up" data-aos-delay="200" className="font-body-lg text-[13px] sm:text-[14px] lg:text-[16px] text-white/60 max-w-lg mb-6 sm:mb-8 leading-relaxed">
                             A sophisticated blend of ancient cultural motifs and contemporary minimalist luxury.
                         </p>
                         <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-stretch sm:items-center">
-                            <button onClick={() => scrollTo('portfolio')} className="bg-white text-[#0a0503] font-label-caps text-[11px] sm:text-label-caps py-3.5 sm:py-4 px-6 sm:px-8 hover:bg-[#D4AF37] hover:text-[#0a0503] transition-all duration-300 flex items-center justify-center gap-2 group">
+                            <button onClick={() => scrollTo('portfolio')} className="bg-white text-[#0a0503] font-label-caps text-[10px] sm:text-[11px] py-3 sm:py-3.5 px-6 hover:bg-[#D4AF37] hover:text-[#0a0503] transition-all duration-300 flex items-center justify-center gap-2 group">
                                 View Portfolio
                                 <span className="group-hover:translate-x-1 transition-transform"><ArrowForwardIcon /></span>
                             </button>
-                            <a href="tel:0720172910" className="border border-white/30 text-white font-label-caps text-[11px] sm:text-label-caps py-3.5 sm:py-4 px-6 sm:px-8 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300 text-center">
+                            <a href="tel:0720172910" className="border border-white/30 text-white font-label-caps text-[10px] sm:text-[11px] py-3 sm:py-3.5 px-6 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300 text-center">
                                 Call for Shoots — 0720172910
                             </a>
                         </div>
                     </div>
                 </div>
 
-                {/* Scroll indicator — hidden on very small screens */}
-                <button onClick={() => scrollTo('studio')} className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 hover:text-white transition-colors animate-bounce hidden sm:block">
+                {/* Scroll indicator */}
+                <button onClick={() => scrollTo('heritage')} className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 hover:text-white transition-colors animate-bounce hidden sm:block">
                     <ArrowDownIcon />
                 </button>
             </section>
 
             {/* ═══════════════════════════════════════════
+                HERITAGE — Jaffna Library
+            ═══════════════════════════════════════════ */}
+            <section id="heritage" className="py-16 sm:py-20 lg:py-28 xl:py-32 px-5 sm:px-8 lg:px-margin-desktop bg-surface-container-low">
+                <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-gutter items-center">
+                    <div className="lg:col-span-5 lg:col-start-2 order-2 lg:order-1" data-aos="fade-right">
+                        <span className="font-label-caps text-[10px] sm:text-label-caps text-[#D4AF37] tracking-[0.15em] mb-4 sm:mb-5 block">Our Inspiration</span>
+                        <h2 className="font-display-sm text-[26px] sm:text-[30px] lg:text-[36px] text-primary leading-tight mb-5 sm:mb-6">
+                            Rooted in <br className="hidden sm:block" /> Intellectual Heritage
+                        </h2>
+                        <div className="w-10 h-[2px] bg-[#D4AF37]/50 mb-6 sm:mb-8"></div>
+                        <p className="font-body-md text-[14px] sm:text-[15px] text-on-surface-variant mb-5 leading-relaxed">
+                            The iconic Jaffna Public Library stands not just as an architectural marvel, but as a beacon of our rich cultural and intellectual history. Its resilience mirrors the spirit of the people we photograph.
+                        </p>
+                        <p className="font-body-md text-[14px] sm:text-[15px] text-on-surface-variant leading-relaxed">
+                            At H2F Studios, we draw profound inspiration from such enduring symbols of our heritage. We approach every wedding, every portrait, and every event with the same reverence for legacy—ensuring that the moments we capture today become the timeless histories of tomorrow.
+                        </p>
+                    </div>
+                    <div className="lg:col-span-6 order-1 lg:order-2" data-aos="fade-left" data-aos-delay="150">
+                        <div className="aspect-[4/3] sm:aspect-[3/2] overflow-hidden relative group shadow-2xl">
+                            <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-700"></div>
+                            <div
+                                className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-[2s] ease-out"
+                                style={{ backgroundImage: "url('/images/v3/jaffna_library.png')" }}
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Divider */}
+            <div className="max-w-container-max mx-auto px-5 sm:px-8 lg:px-margin-desktop">
+                <div className="w-full h-px bg-gradient-to-r from-transparent via-outline-variant/40 to-transparent"></div>
+            </div>
+
+            {/* ═══════════════════════════════════════════
                 THE STUDIO
-                Mobile: single column, image on top
-                Tablet: 2-col with narrower gap
-                Desktop: 12-col grid
             ═══════════════════════════════════════════ */}
             <section id="studio" className="py-16 sm:py-20 lg:py-28 xl:py-32 px-5 sm:px-8 lg:px-margin-desktop">
                 <div className="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 md:gap-8 lg:gap-gutter items-center">
@@ -154,20 +199,15 @@ export default function Home() {
 
             {/* ═══════════════════════════════════════════
                 PORTFOLIO
-                Mobile: 1-col
-                Tablet: 2-col
-                Desktop: 2-col with first item spanning 2 rows
             ═══════════════════════════════════════════ */}
             <section id="portfolio" className="py-16 sm:py-20 lg:py-28 xl:py-32 px-5 sm:px-8 lg:px-margin-desktop">
                 <div className="max-w-container-max mx-auto">
-                    {/* Header row */}
                     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 sm:gap-6 mb-10 sm:mb-14" data-aos="fade-up">
                         <div>
                             <span className="font-label-caps text-[10px] sm:text-label-caps text-[#D4AF37] tracking-[0.15em] mb-3 sm:mb-4 block">Portfolio</span>
                             <h2 className="font-display-sm text-[26px] sm:text-[30px] lg:text-display-sm text-primary leading-tight mb-2 sm:mb-3">Stories We've Told</h2>
                             <p className="font-body-md text-[14px] sm:text-body-md text-on-surface-variant max-w-md">A curated collection of recent commissions.</p>
                         </div>
-                        {/* Filters — horizontal scroll on mobile */}
                         <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-1 -mx-1 px-1 sm:mx-0 sm:px-0 sm:overflow-visible">
                             {filters.map(f => (
                                 <button
@@ -185,7 +225,6 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* Gallery grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                         {filteredItems.map((item, i) => (
                             <div
@@ -220,9 +259,6 @@ export default function Home() {
 
             {/* ═══════════════════════════════════════════
                 CULTURAL ROOTS
-                Mobile: 2-col tight
-                Tablet: 2-col wider
-                Desktop: 4-col
             ═══════════════════════════════════════════ */}
             <section id="roots" className="py-16 sm:py-20 lg:py-28 xl:py-32 px-5 sm:px-8 lg:px-margin-desktop">
                 <div className="max-w-container-max mx-auto">
@@ -234,7 +270,7 @@ export default function Home() {
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
                         {motifs.map((motif, i) => (
                             <div key={motif.id} data-aos="fade-up" data-aos-delay={i * 100} className="group text-center">
                                 <div className="aspect-square overflow-hidden mb-3 sm:mb-5 relative">
@@ -259,13 +295,10 @@ export default function Home() {
 
             {/* ═══════════════════════════════════════════
                 CONTACT
-                Mobile: single column
-                Tablet: single column, wider form
-                Desktop: 2-col (info + form)
             ═══════════════════════════════════════════ */}
             <section id="contact" className="py-16 sm:py-20 lg:py-28 xl:py-32 px-5 sm:px-8 lg:px-margin-desktop">
                 <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-gutter">
-                    {/* Left — Info */}
+                    {/* Left */}
                     <div className="lg:col-span-5" data-aos="fade-right">
                         <span className="font-label-caps text-[10px] sm:text-label-caps text-[#D4AF37] tracking-[0.15em] mb-4 sm:mb-5 block">Contact</span>
                         <h2 className="font-display-sm text-[26px] sm:text-[30px] lg:text-display-sm text-primary leading-tight mb-4 sm:mb-5">Let's Tell Your Story</h2>
@@ -274,7 +307,6 @@ export default function Home() {
                         </p>
 
                         <div className="space-y-5 sm:space-y-6">
-                            {/* Location */}
                             <div className="flex items-start gap-3 sm:gap-4 group">
                                 <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 border border-outline-variant/40 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 -960 960 960" fill="currentColor"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-75.5-184.5T480-812q-89 0-164.5 75.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>
@@ -284,7 +316,6 @@ export default function Home() {
                                     <p className="font-body-md text-[14px] sm:text-body-md text-on-background">Jaffna, Sri Lanka</p>
                                 </div>
                             </div>
-                            {/* Phone */}
                             <div className="flex items-start gap-3 sm:gap-4 group">
                                 <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 border border-outline-variant/40 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 -960 960 960" fill="currentColor"><path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z"/></svg>
@@ -294,7 +325,6 @@ export default function Home() {
                                     <a href="tel:0720172910" className="font-body-md text-[14px] sm:text-body-md text-primary font-bold hover:text-tertiary transition-colors">0720172910</a>
                                 </div>
                             </div>
-                            {/* Email */}
                             <div className="flex items-start gap-3 sm:gap-4 group">
                                 <div className="w-10 h-10 sm:w-11 sm:h-11 flex-shrink-0 border border-outline-variant/40 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 -960 960 960" fill="currentColor"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg>
@@ -306,7 +336,6 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* Social */}
                         <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-outline-variant/20">
                             <span className="font-label-caps text-[10px] sm:text-[11px] text-on-surface-variant tracking-[0.1em] block mb-3">Follow</span>
                             <div className="flex gap-4 sm:gap-5">
@@ -321,9 +350,7 @@ export default function Home() {
                     <div className="lg:col-span-6 lg:col-start-7" data-aos="fade-left" data-aos-delay="150">
                         <div className="bg-surface-container-low p-6 sm:p-8 lg:p-12 border border-outline-variant/30 relative">
                             <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent opacity-40"></div>
-
                             <h3 className="font-title-md text-[16px] sm:text-title-md text-primary mb-6 sm:mb-8">Booking Inquiry</h3>
-
                             <form action="https://formspree.io/f/placeholder" method="POST" className="space-y-5 sm:space-y-7">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-7">
                                     <div>
