@@ -88,13 +88,10 @@ export default function Home() {
                             A sophisticated blend of ancient cultural motifs and contemporary minimalist luxury.
                         </p>
                         <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 items-stretch sm:items-center">
-                            <button onClick={() => scrollTo('portfolio')} className="bg-white text-[#0a0503] font-label-caps text-[10px] sm:text-[11px] py-3 sm:py-3.5 px-6 hover:bg-[#D4AF37] hover:text-[#0a0503] transition-all duration-300 flex items-center justify-center gap-2 group">
+                            <button onClick={() => scrollTo('portfolio')} className="bg-white text-[#0a0503] font-label-caps text-[10px] sm:text-[11px] py-3 sm:py-3.5 px-6 hover:bg-[#D4AF37] hover:text-[#0a0503] transition-all duration-300 flex items-center justify-center gap-2 group w-full sm:w-auto">
                                 View Portfolio
                                 <span className="group-hover:translate-x-1 transition-transform"><ArrowForwardIcon /></span>
                             </button>
-                            <a href="tel:0720172910" className="border border-white/30 text-white font-label-caps text-[10px] sm:text-[11px] py-3 sm:py-3.5 px-6 hover:border-[#D4AF37] hover:text-[#D4AF37] transition-all duration-300 text-center">
-                                Call for Shoots — 0720172910
-                            </a>
                         </div>
                     </div>
                 </div>
