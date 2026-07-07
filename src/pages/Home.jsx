@@ -97,47 +97,10 @@ export default function Home() {
                 </div>
 
                 {/* Scroll indicator */}
-                <button onClick={() => scrollTo('heritage')} className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 hover:text-white transition-colors animate-bounce hidden sm:block">
+                <button onClick={() => scrollTo('studio')} className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 text-white/40 hover:text-white transition-colors animate-bounce hidden sm:block">
                     <ArrowDownIcon />
                 </button>
             </section>
-
-            {/* ═══════════════════════════════════════════
-                HERITAGE — Jaffna Library
-            ═══════════════════════════════════════════ */}
-            <section id="heritage" className="py-16 sm:py-20 lg:py-28 xl:py-32 px-5 sm:px-8 lg:px-margin-desktop bg-surface-container-low">
-                <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-gutter items-center">
-                    <div className="lg:col-span-5 lg:col-start-2 order-2 lg:order-1" data-aos="fade-right">
-                        <span className="font-label-caps text-[10px] sm:text-label-caps text-[#D4AF37] tracking-[0.15em] mb-4 sm:mb-5 block">Our Inspiration</span>
-                        <h2 className="font-display-sm text-[26px] sm:text-[30px] lg:text-[36px] text-primary leading-tight mb-5 sm:mb-6">
-                            Rooted in <br className="hidden sm:block" /> Intellectual Heritage
-                        </h2>
-                        <div className="w-10 h-[2px] bg-[#D4AF37]/50 mb-6 sm:mb-8"></div>
-                        <p className="font-body-md text-[14px] sm:text-[15px] text-on-surface-variant mb-5 leading-relaxed">
-                            The iconic Jaffna Public Library stands not just as an architectural marvel, but as a beacon of our rich cultural and intellectual history. Its resilience mirrors the spirit of the people we photograph.
-                        </p>
-                        <p className="font-body-md text-[14px] sm:text-[15px] text-on-surface-variant leading-relaxed">
-                            At H2F Studios, we draw profound inspiration from such enduring symbols of our heritage. We approach every wedding, every portrait, and every event with the same reverence for legacy—ensuring that the moments we capture today become the timeless histories of tomorrow.
-                        </p>
-                    </div>
-                    <div className="lg:col-span-6 order-1 lg:order-2" data-aos="fade-left" data-aos-delay="150">
-                        <div className="aspect-[4/3] sm:aspect-[3/2] overflow-hidden relative group shadow-2xl">
-                            <div className="absolute inset-0 bg-primary/20 mix-blend-overlay z-10 group-hover:opacity-0 transition-opacity duration-700"></div>
-                            <div
-                                role="img"
-                                aria-label="Jaffna Public Library - A symbol of intellectual heritage"
-                                className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-[2s] ease-out"
-                                style={{ backgroundImage: "url('/images/v3/jaffna_library.png')" }}
-                            ></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Divider */}
-            <div className="max-w-container-max mx-auto px-5 sm:px-8 lg:px-margin-desktop">
-                <div className="w-full h-px bg-gradient-to-r from-transparent via-outline-variant/40 to-transparent"></div>
-            </div>
 
             {/* ═══════════════════════════════════════════
                 THE STUDIO
