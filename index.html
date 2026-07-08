@@ -272,6 +272,36 @@
             background-image: radial-gradient(circle at center, rgba(138, 114, 107, 0.15) 1.5px, transparent 1.5px);
             background-size: 24px 24px;
         }
+
+        /* Hero Slider — GSAP support */
+        .hero-word {
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hero-tagline,
+        .hero-desc,
+        .hero-cta,
+        .hero-gold-accent {
+            will-change: transform, opacity;
+        }
+
+        /* Horizontal marquee scroll */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 40s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 
 </head>
@@ -283,13 +313,15 @@
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         AOS.init({
-          duration: 900,
+          duration: 1000,
           easing: 'ease-out-cubic',
           once: true,
-          offset: 80,
-          delay: 0
+          offset: 60,
+          delay: 0,
+          anchorPlacement: 'top-bottom'
         });
       });
     </script>
   </body>
 </html>
+

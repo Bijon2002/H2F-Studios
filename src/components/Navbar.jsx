@@ -35,18 +35,24 @@ export default function Navbar() {
         ? 'bg-background/95 backdrop-blur-xl border-b border-outline-variant/20 shadow-sm'
         : 'bg-transparent border-b border-transparent';
     const textColor = scrolled ? 'text-on-surface-variant' : 'text-white/80';
-    const logoColor = 'text-[#D4AF37]';
     const btnStyle = scrolled
         ? 'bg-primary text-on-primary hover:bg-tertiary'
         : 'bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:bg-white/20';
+
+    const logoClass = scrolled
+        ? 'text-[#800000] drop-shadow-md'
+        : 'bg-clip-text text-transparent bg-gradient-to-r from-[#D4AF37] via-[#FFF3C7] to-[#8A726B] drop-shadow-[0_2px_10px_rgba(212,175,55,0.2)]';
+    const subLogoClass = scrolled
+        ? 'text-[#0a0503] font-bold'
+        : '';
 
     return (
         <>
             {/* Desktop Nav — hidden below lg (1024px) */}
             <header className={`fixed top-0 w-full z-50 transition-all duration-500 hidden lg:block ${navBg}`}>
                 <div className="flex justify-between items-center w-full px-8 xl:px-margin-desktop py-5 mx-auto max-w-container-max">
-                    <button onClick={() => scrollTo('hero')} className={`font-poppins font-bold text-[28px] xl:text-[32px] tracking-[-0.03em] transition-colors duration-500 ${logoColor}`}>
-                        H2F STUDIOS
+                    <button onClick={() => scrollTo('hero')} className={`font-display-sm text-[26px] xl:text-[30px] font-extrabold tracking-widest uppercase transition-all duration-500 hover:scale-[1.02] ${logoClass}`}>
+                        H2F <span className={`font-body-md tracking-[0.4em] text-[14px] uppercase ml-1 opacity-80 ${subLogoClass}`}>Studios</span>
                     </button>
                     <nav className="flex gap-6 xl:gap-10 items-center">
                         <button onClick={() => scrollTo('studio')} className={`font-label-caps text-label-caps transition-colors duration-300 hover:text-[#D4AF37] ${textColor}`}>The Studio</button>
@@ -62,8 +68,8 @@ export default function Navbar() {
 
             {/* Mobile + Tablet Nav — visible below lg */}
             <header className={`fixed top-0 w-full z-50 py-4 px-5 sm:px-8 lg:hidden flex justify-between items-center transition-all duration-500 ${navBg}`}>
-                <button onClick={() => scrollTo('hero')} className={`font-poppins font-bold text-[22px] sm:text-[26px] tracking-[-0.03em] transition-colors duration-500 ${logoColor}`}>
-                    H2F STUDIOS
+                <button onClick={() => scrollTo('hero')} className={`font-display-sm text-[20px] sm:text-[24px] font-extrabold tracking-widest uppercase transition-all duration-500 ${logoClass}`}>
+                    H2F <span className={`font-body-md tracking-[0.4em] text-[10px] uppercase ml-1 opacity-80 ${subLogoClass}`}>Studios</span>
                 </button>
                 <div className="flex items-center gap-4">
                     <button onClick={() => scrollTo('contact')} className={`hidden sm:block font-label-caps text-label-caps px-5 py-2.5 transition-all duration-300 ${btnStyle}`}>
